@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personvernerklæring</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <a href="index.html"
+     class="back-btn"
+     data-no="← Tilbake"
+     data-en="← Back">
+     ← Tilbake
+  </a>
+
+  <div class="lang-switch" onclick="toggleLanguage()">
+    <span id="lang-flag">🇳🇴</span>
+  </div>
+</header>
+
+<main class="privacy">
+  <h1 data-no="Personvernerklæring"
+      data-en="Privacy Policy">
+      Personvernerklæring
+  </h1>
+
+  <p class="date"
+     data-no="Sist Oppdatert: 18.01.2026"
+     data-en="Last Updated: 18.01.2026">
+     Gyldig fra: 18. mai 2025
+  </p>
+
+  <section>
+    <h2 data-no="1. Introduksjon" data-en="1. Introduction">
+      1. Introduksjon
+    </h2>
+    <p
+      data-no="Jobbtid respekterer ditt personvern. Appen samler ikke inn, lagrer eller deler personopplysninger."
+      data-en="Jobbtid respects your privacy. The app does not collect, store, or share personal data.">
+      Jobbtid respekterer ditt personvern. Appen samler ikke inn, lagrer eller deler personopplysninger.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-no="2. Informasjon vi samler inn"
+        data-en="2. Information We Collect">
+        2. Informasjon vi samler inn
+    </h2>
+    <p
+      data-no="Appen samler ikke inn personopplysninger. All beregning skjer lokalt på enheten din."
+      data-en="The app does not collect personal information. All calculations are done locally on your device.">
+      Appen samler ikke inn personopplysninger. All beregning skjer lokalt på enheten din.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-no="3. Bruk av informasjon"
+        data-en="3. How We Use Information">
+        3. Bruk av informasjon
+    </h2>
+    <p
+      data-no="Siden ingen data samles inn, brukes eller deles ingen informasjon."
+      data-en="Since no data is collected, no information is used or shared.">
+      Siden ingen data samles inn, brukes eller deles ingen informasjon.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-no="4. Tredjepartstjenester"
+        data-en="4. Third-Party Services">
+        4. Tredjepartstjenester
+    </h2>
+    <p
+      data-no="Jobbtid bruker ikke tredjepartstjenester, analyseverktøy eller eksterne databaser."
+      data-en="Jobbtid does not use third-party services, analytics, or external databases.">
+      Jobbtid bruker ikke tredjepartstjenester, analyseverktøy eller eksterne databaser.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-no="5. Datasikkerhet"
+        data-en="5. Data Security">
+        5. Datasikkerhet
+    </h2>
+    <p
+      data-no="All informasjon forblir på din enhet."
+      data-en="All information remains on your device.">
+      All informasjon forblir på din enhet.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-no="6. Endringer"
+        data-en="6. Changes to This Policy">
+        6. Endringer
+    </h2>
+    <p
+      data-no="Eventuelle endringer vil bli oppdatert på denne siden."
+      data-en="Any changes will be updated on this page.">
+      Eventuelle endringer vil bli oppdatert på denne siden.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-no="7. Kontakt"
+        data-en="7. Contact">
+        7. Kontakt
+    </h2>
+    <p>Email: andreas.home@proton.me</p>
+  </section>
+</main>
+
+<script>
+let currentLang = localStorage.getItem("lang") || "no";
+
+function applyLanguage() {
+  document.querySelectorAll("[data-no]").forEach(el => {
+    el.textContent = el.dataset[currentLang];
+  });
+
+  document.getElementById("lang-flag").textContent =
+    currentLang === "no" ? "🇳🇴" : "🇬🇧";
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === "no" ? "en" : "no";
+  localStorage.setItem("lang", currentLang);
+  applyLanguage();
+}
+
+applyLanguage();
+</script>
+
+</body>
+</html>

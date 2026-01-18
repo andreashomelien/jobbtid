@@ -1,1 +1,86 @@
-Hello World!
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jobbtid</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="logo">🔥</div>
+
+  <div class="right-actions">
+    <a href="privacy.html"
+       class="privacy-link"
+       data-no="Personvern"
+       data-en="Privacy">
+       Personvern
+    </a>
+
+    <div class="lang-switch" onclick="toggleLanguage()">
+      <span id="lang-flag">🇳🇴</span>
+    </div>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="app-icon">
+    <img src="images/app.png" alt="Jobbtid app ikon">
+  </div>
+
+  <div class="content">
+    <h1 data-no="JOBBTID" data-en="JOBBTID">JOBBTID</h1>
+
+    <p class="subtitle"
+       data-no="Inntekt & arbeidstid – enkelt"
+       data-en="Income & work time – simple">
+       Inntekt & arbeidstid – enkelt
+    </p>
+
+    <div class="buttons">
+      <a href="#"
+         class="store-btn apple"
+         data-no="App Store"
+         data-en="App Store">
+         App Store
+      </a>
+
+      <a href="https://play.google.com/store"
+         class="store-btn google"
+         data-no="Google Play"
+         data-en="Google Play">
+         Google Play
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Jobbtid</p>
+</footer>
+
+<script>
+let currentLang = localStorage.getItem("lang") || "no";
+
+function applyLanguage() {
+  document.querySelectorAll("[data-no]").forEach(el => {
+    el.textContent = el.dataset[currentLang];
+  });
+
+  document.getElementById("lang-flag").textContent =
+    currentLang === "no" ? "🇳🇴" : "🇬🇧";
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === "no" ? "en" : "no";
+  localStorage.setItem("lang", currentLang);
+  applyLanguage();
+}
+
+applyLanguage();
+</script>
+
+</body>
+</html>
